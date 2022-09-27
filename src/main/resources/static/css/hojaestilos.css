@@ -1,0 +1,16 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 27 sep. 2022, 17:12:27
+    Author     : ivmor
+*/
+
+            h1,header{
+                background-color: green;
+                color: white;
+            }
+            article header{
+                background-color: purple;
+            }
