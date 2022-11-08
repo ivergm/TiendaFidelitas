@@ -10,19 +10,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <title>Techshop</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+         <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <h1>Datos de Cliente  </h1>
+        <header th: replace="layout/plantilla :: header"/>
+        <div class="contenido">
+        <h2>Datos de Cliente  </h2>
       
-        <a th:href="@{/}">Regresar</a>
+        <a th:href="@{/cliente/listado}">Regresar</a>
           <hr/>
             <form th:action="@{/cliente/guardar}"
                 method="post"
                 th:object="${cliente}">
                 
                 <input type="hidden" name="idCliente" th:field="*{idCliente}"> 
-                    
+                    <input type="hidden" name="idCredito" th:field="*{idCredito}">  
                 <label for="nombre">Nombre</label> 
                 <input type="text " name="nombre" th:field="*{nombre}"/>
                 <br/> 
@@ -38,9 +40,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <label for="telefono">Telefono</label> 
                 <input type="tel " name="telefono" th:field="*{telefono}"/>
                 <br/> 
+                
+                  <label for="limite">Limite de credito</label> 
+                <input type="number" name="limite" th:field="*{credito.limite}"/>
+                <br/> 
                 <input type ="submit" name="guardar" value="Guardar"/>
                 
             </form>
+        </div>
         <footer th:replace="layout/plantilla :: footer"/>
     </body>
 </html>

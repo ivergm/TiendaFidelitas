@@ -9,46 +9,41 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <title>Techshop</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
         
     </head>
     <body>
         <header th:replace="layout/plantilla :: header"/>
         
-        <div>Saludos</div>
+        <div class="contenido" 
        
-        <p>[[${mensaje}]] </p>
-        <h2>[Informacion de clientes</h2>
-        <a th:href="@{/cliente/nuevo}">Nuevo Cliente</a>
-        <div th:if="${clientes !=null and !clientes.empty}">
+       
+        <h2>Nuestros articulos</h2>
+     
+        <div th:if="${articulos !=null and !articulos.empty}">
         
         <table border ="1">
             <thead>
             <tr>
-              <th>Nombre </th>
-              <th>Apellido </th>
-              <th> correo </th>
-              <th> telefono</th>
-              <th> Eliminar</th>
-              <th> Modificar</th>
+              <th>Descripcion </th>
+              <th>Precio</th>
                   </tr>
                   </thead> 
                   <tbody>
-                  <tr th:each="cliente: ${clientes}"> 
-                      <td>[[${cliente.nombre}]]</td>
-                      <td>[[${cliente.apellidos}]]</td>
-                      <td>[[${cliente.correo}]]</td>
-                      <td>[[${cliente.telefono}]]</td>
-                      <td><a th:href="@{/cliente/modificar/} +${cliente.idCliente}">Modificar</td>
-                      <td><a th:href="@{/eliminarCliente/} +${cliente.idCliente}">Eliminar</td>
+                  <tr th:each="articulo: ${articulos}"> 
+                      <td>[[${articulo.descripcion}]]</td>
+                      <td style"text-align: right">[[${#numbers.formatDecimal(articulo.precio,3,2)}]]</td>
+                      <td><a th:href ="@{/carrito/agregar/} + ${articulo.idArticulo}">Agregar</a></td>
                   </tr>
                   </body>
                 
         </table>
     </div>
-          <div th:if="${clientes==null or clientes.empty}">
-          <h2>No hay clientes que mostrar</h2>
+          <div th:if="${articulos ==null or articulos.empty}">
+          <h2>No hay articulos que mostrar</h2>
         
         </div> 
+        </div>
         <footer th:replace="layout/plantilla :: footer"/>
     </body>
 </html>
