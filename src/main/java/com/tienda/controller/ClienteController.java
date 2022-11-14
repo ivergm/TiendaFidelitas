@@ -23,6 +23,10 @@ public class ClienteController {
     @Autowired
     private ClienteService clienteService;
     
+    @GetMapping("/cliente/busqueda")
+    public String buscar(Cliente cliente ){
+        var clientes=clienteService.buscarxApellido(apellidos);
+    }
     @GetMapping("/cliente/listado")
     public String inicio(Model model){
          var clientes = clienteService.getClientes();

@@ -14,6 +14,7 @@ import java.util.List;
 public interface ClienteService {
     // creacion de 4 metodos de un Crud (create, read, update and delete)
     
+    public List <Cliente> buscarxApellido(String apellidos);
     //retorna la lista de clientes
     public List<Cliente> getClientes();
     
