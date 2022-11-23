@@ -6,11 +6,3 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     Created on : 27 sep. 2022, 17:12:27
     Author     : ivmor
 */
-
-            h1,header{
-                background-color: green;
-                color: white;
-            }
-            article header{
-                background-color: purple;
-            }

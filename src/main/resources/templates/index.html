@@ -5,42 +5,36 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 -->
 @SpringBootApplication
 <HTML xmlns:th="http://www.thymeleaf.org">
-    <head>
+    <head th:replace="layout/plantilla :: head">
         <title>Techshop</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
+      
         
     </head>
     <body>
         <header th:replace="layout/plantilla :: header"/>
-        
-        <div class="contenido" 
-       
-       
-        <h2>Nuestros articulos</h2>
-     
+        <div class="contenido">
+        <h2>[[#{index.titulo}]] </h2>
         <div th:if="${articulos !=null and !articulos.empty}">
-        
         <table border ="1">
             <thead>
             <tr>
-              <th>Descripcion </th>
-              <th>Precio</th>
+              <th>[[#{articulo.descripcion}]]</th>
+              <th>[[#{articulo.precio}]]</th>
+              <th>[[#{articulo.comprar}]]</th>
                   </tr>
                   </thead> 
                   <tbody>
                   <tr th:each="articulo: ${articulos}"> 
                       <td>[[${articulo.descripcion}]]</td>
                       <td style"text-align: right">[[${#numbers.formatDecimal(articulo.precio,3,2)}]]</td>
-                      <td><a th:href ="@{/carrito/agregar/} + ${articulo.idArticulo}">Agregar</a></td>
+                      <td><a th:href ="@{/carrito/agregar/} + ${articulo.idArticulo}">[[#{accion.agregar}]]</a></td>
                   </tr>
                   </body>
                 
         </table>
     </div>
           <div th:if="${articulos ==null or articulos.empty}">
-          <h2>No hay articulos que mostrar</h2>
+          <h2>[[#{articulo.no_mostrar}]]</h2>
         
         </div> 
         </div>

@@ -15,37 +15,38 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     <body>
         <header th: replace="layout/plantilla :: header"/>
         <div class="contenido">
-        <h2>Datos de Cliente  </h2>
+        <h2>[[#{cliente.datos}]]</h2>
       
-        <a th:href="@{/cliente/listado}">Regresar</a>
+        <a th:href="@{/cliente/listado}">[[#{accion.regresar}]]</a>
           <hr/>
             <form th:action="@{/cliente/guardar}"
                 method="post"
                 th:object="${cliente}">
                 
                 <input type="hidden" name="idCliente" th:field="*{idCliente}"> 
-                    <input type="hidden" name="idCredito" th:field="*{idCredito}">  
-                <label for="nombre">Nombre</label> 
+                    <input type="hidden" name="idCredito" th:field="*{idCredito}"> 
+                        
+                <label for="nombre">[[#{cliente.nombre}]]</label> 
                 <input type="text " name="nombre" th:field="*{nombre}"/>
                 <br/> 
                 
-                <label for="apellidos">Apellidos</label> 
+                <label for="apellidos">[[#{accion.apellidos}]]</label> 
                 <input type="text " name="apellidos" th:field="*{apellidos}"/>
                 <br/> 
                 
-                <label for="correo">Correo</label> 
+                <label for="correo">[[#{accion.correo}]]</label> 
                 <input type="email " name="correo" th:field="*{correo}"/>
                 <br/> 
                 
-                <label for="telefono">Telefono</label> 
+                <label for="telefono">[[#{accion.telefono}]]</label> 
                 <input type="tel " name="telefono" th:field="*{telefono}"/>
                 <br/> 
                 
-                  <label for="limite">Limite de credito</label> 
+                  <label for="limite">[[#{cliente.limite}]]</label> 
                 <input type="number" name="limite" th:field="*{credito.limite}"/>
                 <br/> 
                 
-                <input type ="submit" name="Buscar" value="Buscar"/>
+                <button  type ="submit" th:text="#{accion.guardar}"/>
                 <input type ="submit" name="guardar" value="Guardar"/>
                 
             </form>
